@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/api/order/*").hasAnyAuthority("USER");
         http.authorizeRequests().antMatchers("/api/stadium/*").hasAnyAuthority("OWNER", "ADMIN");
         http.authorizeRequests().antMatchers("/api/user/authenticate").permitAll();
-        http.authorizeRequests().antMatchers("/v3/api-docs/**", "/swagger-ui/**", "swagger-ui.html").permitAll();
+        http.authorizeRequests().antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
     }
 
