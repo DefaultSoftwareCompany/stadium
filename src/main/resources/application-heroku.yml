@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/d5l6h6rlbc3fqu
+    username: qzbybdtksepkmt
+    password: 785cc31cff541cd445aba4ae556589c41c326ded3f64e8cd62ba40d08f1f8430
+  jpa:
+    hibernate:
+      ddl-auto: create
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
