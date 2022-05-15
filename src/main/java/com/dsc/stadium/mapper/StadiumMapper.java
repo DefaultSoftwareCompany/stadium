@@ -9,9 +9,7 @@ import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface StadiumMapper {
-    @Mappings(@Mapping(target = "owner.id", source = "ownerId"))
     Stadium toEntity(StadiumDto dto);
 
-    @Mappings(@Mapping(target = "ownerId", source = "owner.id"))
     StadiumDto toDto(Stadium user);
 }

@@ -2,14 +2,14 @@ package com.dsc.stadium.controller;
 
 import com.dsc.stadium.dto.StadiumDto;
 import com.dsc.stadium.exceptions.BadRequestException;
+import com.dsc.stadium.filter.SearchFilter;
 import com.dsc.stadium.service.StadiumService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/stadium/v1")
@@ -27,7 +27,17 @@ public class StadiumController {
     }
 
     @PutMapping
-    public StadiumDto update(StadiumDto stadiumDto) throws BadRequestException {
+    public StadiumDto update(@Valid StadiumDto stadiumDto) throws BadRequestException {
         return stadiumService.update(stadiumDto);
+    }
+
+    @GetMapping
+    public List<StadiumDto> getList(Double latitude, Double longitude) {
+        return stadiumService.getList(latitude, longitude);
+    }
+
+    @GetMapping("search")
+    public List<StadiumDto> search(SearchFilter filter) {
+        return stadiumService.search(filter);
     }
 }

@@ -23,10 +23,10 @@ public class Stadium {
 
     private String address;
 
-    BigDecimal price;
+    private BigDecimal price;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private User owner;
+    @Column(columnDefinition = "text")
+    private String description;
 
     @Override
     public boolean equals(Object o) {

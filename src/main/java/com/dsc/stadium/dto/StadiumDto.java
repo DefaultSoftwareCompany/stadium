@@ -1,6 +1,8 @@
 package com.dsc.stadium.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
@@ -9,6 +11,8 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class StadiumDto implements Serializable {
     private Integer id;
     @NotNull
@@ -22,5 +26,6 @@ public class StadiumDto implements Serializable {
     @NotNull
     private BigDecimal price;
     @NotNull
-    private Integer ownerId;
+    private String description;
+    private Double distance;
 }
